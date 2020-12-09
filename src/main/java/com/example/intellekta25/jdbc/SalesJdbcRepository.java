@@ -103,6 +103,13 @@ public class SalesJdbcRepository {
         return jdbcInsert.executeAndReturnKey(paramSource).longValue();
     }
 
+    public List<Sales> findByPriceGreaterThan(long price) {
+        String query = "SELECT sales.*, product.id as product_id, product.name as product_name FROM sales INNER JOIN product ON sales.product = product.id WHERE sales.price > ?;";
+        List<Sales> result = jdbcTemplate.query(query, new Object[]{price}, new SalesRowMapper());
+
+        return result;
+    }
+
     public static final class SalesRowMapper implements RowMapper<Sales> {
         @Override
         public Sales mapRow(ResultSet row, int rowNum) throws SQLException {

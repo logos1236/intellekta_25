@@ -29,6 +29,7 @@ public class Intellekta25Application {
 			SalesJPA salesJPA = configurableApplicationContext.getBean(SalesJPA.class);
 			System.out.println("JPA sales count: "+salesJPA.count());
 			System.out.println("JPA sales get by id: "+salesJPA.findById(1l).get());
+			System.out.println("JPA sales get with price more than 100: "+salesJPA.findByPriceGreaterThan(100));
 
 			// Save
 				Sales salesForSaveJPA = new Sales();
@@ -44,6 +45,7 @@ public class Intellekta25Application {
 			SalesJdbcRepository salesJdbcRepository = configurableApplicationContext.getBean(SalesJdbcRepository.class);
 			System.out.println("JDBC sales count: "+salesJdbcRepository.count());
 			System.out.println("JDBC sales get by id: "+salesJdbcRepository.findById(1l).get());
+			System.out.println("JDBC sales get with price more than 100: "+salesJdbcRepository.findByPriceGreaterThan(100));
 
 			// Save
 				Sales salesForSaveJDBC = new Sales();
