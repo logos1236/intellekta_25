@@ -1,0 +1,9 @@
+package com.example.intellekta25.jpa;
+
+import com.example.intellekta25.entity.Sales;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SalesJPA extends JpaRepository<Sales, Long> {
+}
